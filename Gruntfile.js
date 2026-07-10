@@ -140,6 +140,7 @@ module.exports = function(grunt) {
       jquery: 'karma-jquery.conf.js',
       'jquery-2.2': 'karma-jquery-2.2.conf.js',
       'jquery-2.1': 'karma-jquery-2.1.conf.js',
+      security: 'karma-security.conf.js',
       docs: 'karma-docs.conf.js',
       modules: 'karma-modules.conf.js',
       'modules-ngAnimate': 'karma-modules-ngAnimate.conf.js',
@@ -463,6 +464,10 @@ module.exports = function(grunt) {
     'test:protractor'
   ]);
   grunt.registerTask('test:jqlite', 'Run the unit tests with Karma' , ['tests:jqlite']);
+  grunt.registerTask('test:security', 'Run LTS security regression tests with Karma', [
+    'buildall',
+    'tests:security'
+  ]);
   grunt.registerTask('test:jquery', 'Run the jQuery (latest) unit tests with Karma', ['tests:jquery']);
   grunt.registerTask('test:jquery-2.2', 'Run the jQuery 2.2 unit tests with Karma', ['tests:jquery-2.2']);
   grunt.registerTask('test:jquery-2.1', 'Run the jQuery 2.1 unit tests with Karma', ['tests:jquery-2.1']);
