@@ -42,9 +42,9 @@ files.forEach(function(filename) {
 
 [
   ['angular.js', 'new RegExp(source.source, source.flags)'],
-  ['angular.js', "new RegExp('^(?:' + matcher.source + ')$')"],
+  ['angular.js', 'new RegExp(\'^(?:\' + matcher.source + \')$\')'],
   ['angular.js', 'Internet Explorer is not supported by AngularJS AchieveMore LTS'],
-  ['angular-resource.js', "url.charAt(lastNonSlashIndex) === '/'"],
+  ['angular-resource.js', 'url.charAt(lastNonSlashIndex) === \'/\''],
   ['angular-sanitize.js', 'match[5] === undefined'],
   ['angular-translate.js', 'iElement.text(scope.preText + value + scope.postText)']
 ].forEach(function(assertion) {

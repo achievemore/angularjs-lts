@@ -1,3 +1,27 @@
+# 1.8.4-achievemore.1 (2026-07-10)
+
+## Security
+
+- Fixed ReDoS paths in currency formatting, `angular.copy(RegExp)`, URL input
+  validation, `ngResource`, `srcset`, and the `linky` filter.
+- Applied image source policies consistently to `img`, `source`, and SVG
+  `image` elements in core and `ngSanitize`.
+- Anchored SCE regular-expression alternatives as a complete matcher.
+- Rendered unresolved `angular-translate` keys as text to prevent DOM injection.
+- Refused initialization in Internet Explorer to mitigate CVE-2022-25869.
+
+## Distribution
+
+- Versioned core as `1.8.4-achievemore.1` and angular-translate as
+  `2.19.2-achievemore.1`.
+- Added reproducible normal and minified bundles, security regression tests,
+  VEX evidence, and GitHub release checksums.
+
+## Compatibility
+
+- Internet Explorer is no longer supported.
+- `srcset` output now normalizes whitespace around candidate separators.
+
 **AngularJS support has officially ended as of January 2022.
 [See what ending support means](https://docs.angularjs.org/misc/version-support-status)
 and [read the end of life announcement](https://goo.gle/angularjs-end-of-life).**

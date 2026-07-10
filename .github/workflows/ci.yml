@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: yarn
+      - run: yarn install --frozen-lockfile --ignore-scripts
+      - run: npm ci --ignore-scripts
+        working-directory: packages/angular-translate
+      - run: ./node_modules/.bin/bower install --config.interactive=false --allow-root
+        working-directory: packages/angular-translate
+      - run: npm run test:security
+      - run: NG1_BUILD_NO_REMOTE_VERSION_REQUESTS=1 yarn grunt buildall tests:modules
+      - run: ./node_modules/.bin/grunt karma:unit --single-run=true
+        working-directory: packages/angular-translate
+      - run: npm run build:lts
+      - run: npm run verify:dist
+      - run: git diff --exit-code -- dist

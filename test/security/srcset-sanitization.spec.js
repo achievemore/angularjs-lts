@@ -24,6 +24,7 @@ describe('srcset sanitization protections', function() {
       inject(function($compile, $rootScope) {
         var element = $compile('<source capture-source-attrs>')($rootScope);
 
+        // eslint-disable-next-line no-script-url
         capturedSourceAttrs.$set('srcset', 'javascript:alert(1) 2x');
 
         expect(element.attr('srcset')).toBe('unsafe:javascript:alert(1) 2x');
@@ -32,11 +33,11 @@ describe('srcset sanitization protections', function() {
   it('parses long whitespace sequences in linear time', inject(function($compile, $rootScope) {
     var element = $compile('<img srcset="{{value}}">')($rootScope);
     $rootScope.value = 'https://example.test/safe.png' + new Array(20001).join(' ') + 'invalid';
-    var startedAt = performance.now();
+    var startedAt = window.performance.now();
 
     $rootScope.$digest();
 
-    expect(performance.now() - startedAt).toBeLessThan(300);
+    expect(window.performance.now() - startedAt).toBeLessThan(300);
     expect(element.attr('srcset')).toContain('https://example.test/safe.png');
   }));
 });

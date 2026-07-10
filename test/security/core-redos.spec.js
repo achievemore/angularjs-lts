@@ -49,11 +49,11 @@ describe('core ReDoS protections', function() {
     }));
 
     it('handles long currency patterns in linear time', inject(function($filter) {
-      var startedAt = performance.now();
+      var startedAt = window.performance.now();
 
       $filter('currency')(1, '');
 
-      expect(performance.now() - startedAt).toBeLessThan(300);
+      expect(window.performance.now() - startedAt).toBeLessThan(300);
     }));
   });
 
@@ -65,11 +65,11 @@ describe('core ReDoS protections', function() {
       var input = $compile('<input type="url" ng-model="value">')(scope);
       var control = input.controller('ngModel');
       var value = 'scheme:' + new Array(20001).join('/');
-      var startedAt = performance.now();
+      var startedAt = window.performance.now();
 
       control.$setViewValue(value);
 
-      expect(performance.now() - startedAt).toBeLessThan(300);
+      expect(window.performance.now() - startedAt).toBeLessThan(300);
       expect(control.$valid).toBe(false);
     }));
   });

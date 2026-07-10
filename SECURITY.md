@@ -2,15 +2,25 @@
 
 ## Supported Versions
 
-**AngularJS support has officially ended as of January 2022.**
-[See what ending support means](https://docs.angularjs.org/misc/version-support-status)
-and [read the end of life announcement](https://goo.gle/angularjs-end-of-life).
+| Version | Supported | Notes |
+| --- | --- | --- |
+| `1.8.4-achievemore.1` | Yes | Security fixes listed in `VEX.md` |
+| Earlier AchieveMore versions | No | Upgrade to the latest immutable tag |
+| Upstream AngularJS releases | No | Upstream support ended in January 2022 |
 
-Visit [angular.io](https://angular.io) for the actively supported Angular.
+Internet Explorer is unsupported. The distribution targets browsers with
+ES2016 support.
 
-| Version     | Supported          | Status                | Comments                             |
-| ----------- | ------------------ | --------------------- | ------------------------------------ |
-| 1.8.x       | :x:                | All support ended     |                                      |
-| 1.3.x-1.7.x | :x:                | All support ended     |                                      |
-| 1.2.x       | :x:                | All support ended     | Last version to provide IE 8 support |
-| <1.2.0      | :x:                | All support ended     |                                      |
+## Reporting
+
+Report suspected vulnerabilities privately through GitHub Security Advisories
+for `achievemore/angularjs-lts`. Include the affected bundle, a minimal proof of
+concept, browser version, and expected impact. Do not open a public issue before
+maintainers have had an opportunity to assess the report.
+
+## Scope
+
+The release claim covers the exact files attached to the GitHub release and
+verified by `dist/SHA256SUMS`. Application code, third-party plugins, custom SCE
+regular expressions, and unsafe use of trust-bypass APIs remain the consumer's
+responsibility.

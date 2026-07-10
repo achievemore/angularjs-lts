@@ -438,6 +438,9 @@ module.exports = function(grunt) {
       },
       'translate-compile': {
         command: 'npm --prefix packages/angular-translate run compile'
+      },
+      'assemble-dist': {
+        command: 'node scripts/assemble-dist.js'
       }
     },
 
@@ -468,8 +471,11 @@ module.exports = function(grunt) {
   ]);
   grunt.registerTask('test:jqlite', 'Run the unit tests with Karma' , ['tests:jqlite']);
   grunt.registerTask('test:security', 'Run LTS security regression tests with Karma', [
+    'clean:build',
     'buildall',
+    'minall',
     'shell:translate-compile',
+    'shell:assemble-dist',
     'tests:security'
   ]);
   grunt.registerTask('test:jquery', 'Run the jQuery (latest) unit tests with Karma', ['tests:jquery']);

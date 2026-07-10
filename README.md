@@ -1,4 +1,54 @@
-AngularJS [![CircleCI](https://circleci.com/gh/angular/angular.js/tree/master.svg?style=shield)](https://circleci.com/gh/angular/workflows/angular.js/tree/master)
+# AngularJS AchieveMore LTS
+
+This repository provides an independently maintained AngularJS distribution for
+legacy AchieveMore applications. Release `v1.8.4-achievemore.1` contains
+AngularJS core, `ngResource`, `ngSanitize`, and `angular-translate` browser
+bundles with regression-tested fixes documented in [VEX.md](VEX.md).
+
+This is not an official Google AngularJS release and is not affiliated with
+HeroDevs, OpenLogic, or another commercial LTS vendor.
+
+## Installation
+
+Production deployments must pin an immutable Git tag. A Git dependency can be
+declared as:
+
+```json
+{
+  "dependencies": {
+    "angularjs-lts": "github:achievemore/angularjs-lts#v1.8.4-achievemore.1"
+  }
+}
+```
+
+The browser files are under `dist/`. They are also attached individually to the
+GitHub release, together with `SHA256SUMS`. Do not depend on `main` in
+production.
+
+```html
+<script src="angular.js"></script>
+<script src="angular-resource.js"></script>
+<script src="angular-sanitize.js"></script>
+<script src="angular-translate.js"></script>
+```
+
+Internet Explorer is intentionally unsupported and the core bundle refuses to
+initialize there. Use a browser with ES2016 support.
+
+## Verification
+
+```bash
+npm run build:lts
+npm run test:security
+npm run verify:dist
+```
+
+See [SECURITY.md](SECURITY.md) for reporting and support scope, and
+[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for provenance.
+
+---
+
+AngularJS upstream archive
 =========
 
 AngularJS lets you write client-side web applications as if you had a smarter browser.  It lets you
