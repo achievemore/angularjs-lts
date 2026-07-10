@@ -105,6 +105,12 @@
 
 ////////////////////////////////////
 
+// Internet Explorer retains unsafe textarea values across page loads (CVE-2022-25869).
+// The browser is end-of-life and cannot be supported safely by this distribution.
+if (window.document.documentMode) {
+  throw new Error('Internet Explorer is not supported by AngularJS AchieveMore LTS');
+}
+
 /**
  * @ngdoc module
  * @name ng
