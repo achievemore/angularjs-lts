@@ -1,22 +1,26 @@
 {
   "name": "angular",
+  "version": "1.8.4-achievemore.1",
   "license": "MIT",
   "branchVersion": "^1.8.0",
   "branchPattern": "1.8.*",
   "distTag": "next",
   "repository": {
     "type": "git",
-    "url": "https://github.com/angular/angular.js.git"
+    "url": "https://github.com/achievemore/angularjs-lts.git"
   },
   "engines": {
-    "node": ">=12.14.1",
+    "node": ">=10",
     "yarn": ">=1.21.1",
     "grunt-cli": "^1.2.0"
   },
   "scripts": {
+    "build:lts": "NG1_BUILD_NO_REMOTE_VERSION_REQUESTS=1 grunt clean:build buildall minall && npm --prefix packages/angular-translate run compile && node scripts/assemble-dist.js",
     "commit": "git-cz",
+    "test:security": "grunt test:security",
     "test-i18n": "jasmine-node i18n/spec",
-    "test-i18n-ucd": "jasmine-node i18n/ucd/spec"
+    "test-i18n-ucd": "jasmine-node i18n/ucd/spec",
+    "verify:dist": "node scripts/check-dist.js"
   },
   "devDependencies": {
     "angular-benchpress": "0.x.x",

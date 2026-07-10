@@ -16,13 +16,9 @@
   "engines": {
     "node": "*"
   },
-  "devEngines": {
-    "node": ">=12.14",
-    "npm": ">=6.13"
-  },
   "scripts": {
     "prepare": "bower install",
-    "check-env": "node node_modules/fbjs-scripts/node/check-dev-engines.js package.json",
+    "check-env": "node -e \"var major=+process.versions.node.split('.')[0]; if(major<12) throw new Error('Node.js 12.14 or newer is required to build angular-translate')\"",
     "shipit": "npm run-script -s check-env && bower install && bower update && grunt prepare-release",
     "lint": "grunt lint",
     "test": "npm run-script -s check-env && grunt install-test && grunt test",
