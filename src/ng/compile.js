@@ -3822,6 +3822,9 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
           (nodeName === 'link' && attrNormalizedName === 'href')
       ) {
         return $sce.RESOURCE_URL;
+      } else if (nodeName === 'image' && (attrNormalizedName === 'href' ||
+                                         attrNormalizedName === 'ngHref')) {
+        return $sce.MEDIA_URL;
       } else if (nodeName === 'a' && (attrNormalizedName === 'href' ||
                                  attrNormalizedName === 'ngHref')) {
         return $sce.URL;
