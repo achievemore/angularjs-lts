@@ -435,6 +435,9 @@ module.exports = function(grunt) {
           failOnError: true
         },
         command: path.normalize('./node_modules/.bin/promises-aplus-tests tmp/promises-aplus-adapter++.js --timeout 2000')
+      },
+      'translate-compile': {
+        command: 'npm --prefix packages/angular-translate run compile'
       }
     },
 
@@ -466,6 +469,7 @@ module.exports = function(grunt) {
   grunt.registerTask('test:jqlite', 'Run the unit tests with Karma' , ['tests:jqlite']);
   grunt.registerTask('test:security', 'Run LTS security regression tests with Karma', [
     'buildall',
+    'shell:translate-compile',
     'tests:security'
   ]);
   grunt.registerTask('test:jquery', 'Run the jQuery (latest) unit tests with Karma', ['tests:jquery']);

@@ -13,6 +13,12 @@ module.exports = function (config) {
 
     frameworks: ['jasmine'],
 
+    plugins: [
+      'karma-jasmine',
+      'karma-chrome-launcher',
+      'karma-coverage'
+    ],
+
     files: [
       shared.injectByScope(scope, 'messageformat/messageformat.js'),
       shared.injectByScope(scope, 'angular/angular.js'),

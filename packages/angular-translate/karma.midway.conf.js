@@ -13,6 +13,11 @@ module.exports = function (config) {
 
     frameworks: ['jasmine'],
 
+    plugins: [
+      'karma-jasmine',
+      'karma-chrome-launcher'
+    ],
+
     files: [
       shared.injectByScope(scope, 'angular/angular.js'),
       'src/translate.js',

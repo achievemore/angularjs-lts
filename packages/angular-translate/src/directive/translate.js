@@ -304,15 +304,21 @@ function translateDirective($translate, $interpolate, $compile, $parse, $rootSco
         };
 
         var applyTranslation = function (value, scope, successful, translateAttr) {
+          var hasDefaultText = typeof scope.defaultText !== 'undefined';
           if (!successful) {
-            if (typeof scope.defaultText !== 'undefined') {
+            if (hasDefaultText) {
               value = scope.defaultText;
             }
           }
           if (translateAttr === 'translate') {
             // default translate into innerHTML
             if (successful || (!successful && !$translate.isKeepContent() && typeof iAttr.translateKeepContent === 'undefined')) {
-              iElement.empty().append(scope.preText + value + scope.postText);
+              iElement.empty();
+              if (successful || hasDefaultText) {
+                iElement.append(scope.preText + value + scope.postText);
+              } else {
+                iElement.text(scope.preText + value + scope.postText);
+              }
             }
             var globallyEnabled = $translate.isPostCompilingEnabled();
             var locallyDefined = typeof tAttr.translateCompile !== 'undefined';

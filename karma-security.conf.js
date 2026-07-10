@@ -12,6 +12,7 @@ module.exports = function(config) {
       'build/angular.js',
       'build/angular-resource.js',
       'build/angular-sanitize.js',
+      'packages/angular-translate/dist/angular-translate.js',
       'build/angular-mocks.js',
       'test/helpers/matchers.js',
       'test/helpers/privateMocks.js',
