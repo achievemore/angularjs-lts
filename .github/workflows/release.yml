@@ -1,0 +1,30 @@
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: yarn
+      - run: yarn install --frozen-lockfile --ignore-scripts
+      - run: npm ci --ignore-scripts
+        working-directory: packages/angular-translate
+      - run: ./node_modules/.bin/bower install --config.interactive=false --allow-root
+        working-directory: packages/angular-translate
+      - run: npm run test:security
+      - run: npm run build:lts
+      - run: npm run verify:dist
+      - run: sha256sum dist/*.js > dist/SHA256SUMS
+      - run: gh release create "$GITHUB_REF_NAME" dist/* --verify-tag --generate-notes
+        env:
+          GH_TOKEN: ${{ github.token }}
