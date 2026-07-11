@@ -20,7 +20,7 @@ jobs:
       - run: ./node_modules/.bin/bower install --config.interactive=false --allow-root
         working-directory: packages/angular-translate
       - run: npm run test:security
-      - run: NG1_BUILD_NO_REMOTE_VERSION_REQUESTS=1 yarn grunt buildall tests:modules
+      - run: NG1_BUILD_NO_REMOTE_VERSION_REQUESTS=1 yarn grunt buildall tests:modules --browsers=ChromeHeadless
       - run: ./node_modules/.bin/grunt karma:unit --single-run=true
         working-directory: packages/angular-translate
       - run: npm run build:lts
