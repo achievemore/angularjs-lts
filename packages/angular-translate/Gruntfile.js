@@ -7,6 +7,11 @@ module.exports = function (grunt) {
 
   require('load-grunt-tasks')(grunt);
   var pkg = grunt.file.readJSON('package.json');
+  var buildDate = process.env.SOURCE_DATE_EPOCH ?
+    new Date(Number(process.env.SOURCE_DATE_EPOCH) * 1000) :
+    new Date('2026-07-10T00:00:00Z');
+  var buildDateText = buildDate.toISOString().slice(0, 10);
+  var buildYear = buildDate.getUTCFullYear();
 
   // Returns configuration for bower-install plugin
   var loadTestScopeConfigurations = function () {
@@ -45,10 +50,12 @@ module.exports = function (grunt) {
     language: grunt.option('lang') || 'en',
 
     meta: {
+      buildDate: buildDateText,
+      buildYear: buildYear,
       banner: '/*!\n * <%= pkg.title || pkg.name %> - v<%= pkg.version %> - ' +
-        '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
+        '<%= meta.buildDate %>\n' +
         ' * <%= pkg.homepage %>\n' +
-        ' * Copyright (c) <%= grunt.template.today("yyyy") %> The <%= pkg.title || pkg.name %> team, <%= pkg.author.name %>;' +
+        ' * Copyright (c) <%= meta.buildYear %> The <%= pkg.title || pkg.name %> team, <%= pkg.author.name %>;' +
         ' Licensed <%= pkg.license %>\n */\n'
     },
 
