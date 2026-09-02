@@ -1,3 +1,28 @@
+# 1.9.11-achievemore.1 (2026-09-02)
+
+## Versioning
+
+- Renumbered from the `1.8.x` line to `1.9.11`. The distribution is built from
+  upstream AngularJS 1.8.3 with the fixes in [VEX.md](VEX.md) applied, so a
+  `1.8.x` version string made scanners report advisories whose affected range
+  ends at 1.8.3 even though the code paths are patched. The new minor mirrors
+  the convention used by other maintained AngularJS distributions.
+- No AngularJS API changes accompany the renumber. Consumers upgrading from
+  `1.8.4-achievemore.1` need only change the tag.
+
+## Distribution
+
+- Added `ngAnimate` and `ngMessages` browser bundles to `dist/`. Consumers
+  previously had to source these modules from upstream AngularJS 1.8.2, which
+  mixed unpatched framework code into application bundles that otherwise used
+  this distribution.
+- Extended `verify:dist` to cover the two new bundles.
+
+## Security
+
+- No new vulnerability fixes. The AngularJS advisories outstanding at the time
+  of this release are unchanged from `1.8.4-achievemore.1`; see [VEX.md](VEX.md).
+
 # 1.8.4-achievemore.1 (2026-07-10)
 
 ## Security

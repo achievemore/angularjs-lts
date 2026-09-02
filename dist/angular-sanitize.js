@@ -1,5 +1,5 @@
 /**
- * @license AngularJS v1.8.4-achievemore.1
+ * @license AngularJS v1.9.11-achievemore.1
  * (c) 2010-2020 Google LLC. http://angularjs.org
  * License: MIT
  */
@@ -690,7 +690,7 @@ function sanitizeText(chars) {
 // define ngSanitize module and register $sanitize service
 angular.module('ngSanitize', [])
   .provider('$sanitize', $SanitizeProvider)
-  .info({ angularVersion: '1.8.4-achievemore.1' });
+  .info({ angularVersion: '1.9.11-achievemore.1' });
 
 /**
  * @ngdoc filter

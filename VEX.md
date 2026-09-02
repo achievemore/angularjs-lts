@@ -19,3 +19,25 @@ regression test passes against the generated distribution files.
 | CVE-2023-26116 | AngularJS core | fixed | 1.8.4-achievemore.1 | `89d4de225` | `core-redos.spec.js` | Requires `RegExp.prototype.flags` |
 | CVE-2022-25869 | AngularJS core | fixed | 1.8.4-achievemore.1 | `5a4267ecf` | `unsupported-ie.spec.js` | Mitigated by refusing all Internet Explorer versions |
 | CVE-2022-25844 | AngularJS core | fixed | 1.8.4-achievemore.1 | `89d4de225` | `core-redos.spec.js` | Locale patterns without a currency marker return early |
+
+## Distribution scope
+
+The dispositions above apply to every bundle in `dist/`, which as of
+`1.9.11-achievemore.1` covers AngularJS core, `ngResource`, `ngSanitize`,
+`ngAnimate`, `ngMessages`, and `angular-translate`. Sourcing any of these
+modules from an upstream AngularJS 1.8.x release instead re-introduces the
+unpatched code paths, because the fixes are not present upstream.
+
+Advisories published against `npm:angular` that are marked
+`first_patched_version <= 1.8.0` (GHSA-28hp-fgcr-2r4h, CVE-2019-10768,
+CVE-2019-14863, CVE-2020-7676, GHSA-5cp4-xmrw-59wf) are not applicable: this
+distribution is built from upstream 1.8.3, which already contains those fixes.
+
+## Version numbering
+
+This distribution is versioned `1.9.x` while being built from upstream
+AngularJS 1.8.3. The renumber is deliberate: the advisories above have affected
+ranges ending at 1.8.3, so a `1.8.x` version string causes version-based
+scanners to report them against a distribution in which they are fixed. The
+version communicates "not the vulnerable 1.8.x line"; it does not claim
+upstream feature parity with a 1.9 release, which does not exist.

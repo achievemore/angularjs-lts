@@ -1,9 +1,9 @@
 # AngularJS AchieveMore LTS
 
 This repository provides an independently maintained AngularJS distribution for
-legacy AchieveMore applications. Release `v1.8.4-achievemore.1` contains
-AngularJS core, `ngResource`, `ngSanitize`, and `angular-translate` browser
-bundles with regression-tested fixes documented in [VEX.md](VEX.md).
+legacy AchieveMore applications. Release `v1.9.11-achievemore.1` contains
+AngularJS core, `ngResource`, `ngSanitize`, `ngAnimate`, `ngMessages`, and
+`angular-translate` browser bundles with regression-tested fixes documented in [VEX.md](VEX.md).
 
 This is not an official Google AngularJS release and is not affiliated with
 HeroDevs, OpenLogic, or another commercial LTS vendor.
@@ -16,7 +16,7 @@ declared as:
 ```json
 {
   "dependencies": {
-    "angularjs-lts": "github:achievemore/angularjs-lts#v1.8.4-achievemore.1"
+    "angularjs-lts": "github:achievemore/angularjs-lts#v1.9.11-achievemore.1"
   }
 }
 ```

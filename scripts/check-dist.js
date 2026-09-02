@@ -13,6 +13,10 @@ var files = [
   'angular-resource.min.js',
   'angular-sanitize.js',
   'angular-sanitize.min.js',
+  'angular-animate.js',
+  'angular-animate.min.js',
+  'angular-messages.js',
+  'angular-messages.min.js',
   'angular-translate.js',
   'angular-translate.min.js'
 ];
