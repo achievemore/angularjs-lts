@@ -4,7 +4,8 @@
 
 | Version | Supported | Notes |
 | --- | --- | --- |
-| `1.8.4-achievemore.1` | Yes | Security fixes listed in `VEX.md` |
+| `1.9.11-achievemore.1` | Yes | Security fixes listed in `VEX.md` |
+| `1.8.4-achievemore.1` | No | Superseded; same core fixes, fewer module bundles |
 | Earlier AchieveMore versions | No | Upgrade to the latest immutable tag |
 | Upstream AngularJS releases | No | Upstream support ended in January 2022 |
 

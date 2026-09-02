@@ -1,5 +1,5 @@
 /**
- * @license AngularJS v1.8.4-achievemore.1
+ * @license AngularJS v1.9.11-achievemore.1
  * (c) 2010-2020 Google LLC. http://angularjs.org
  * License: MIT
  */
@@ -99,7 +99,7 @@ function isValidObjectMaxDepth(maxDepth) {
 function minErr(module, ErrorConstructor) {
   ErrorConstructor = ErrorConstructor || Error;
 
-  var url = 'https://errors.angularjs.org/1.8.4-achievemore.1/';
+  var url = 'https://errors.angularjs.org/1.9.11-achievemore.1/';
   var regex = url.replace('.', '\\.') + '[\\s\\S]*';
   var errRegExp = new RegExp(regex, 'g');
 
@@ -2834,10 +2834,10 @@ function toDebugString(obj, maxDepth) {
 var version = {
   // These placeholder strings will be replaced by grunt's `build` task.
   // They need to be double- or single-quoted.
-  full: '1.8.4-achievemore.1',
+  full: '1.9.11-achievemore.1',
   major: 1,
-  minor: 8,
-  dot: 4,
+  minor: 9,
+  dot: 11,
   codeName: 'achievemore-lts'
 };
 
@@ -2989,7 +2989,7 @@ function publishExternalAPI(angular) {
       });
     }
   ])
-  .info({ angularVersion: '1.8.4-achievemore.1' });
+  .info({ angularVersion: '1.9.11-achievemore.1' });
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
