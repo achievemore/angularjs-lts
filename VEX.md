@@ -23,8 +23,8 @@ regression test passes against the generated distribution files.
 ## Distribution scope
 
 The dispositions above apply to every bundle in `dist/`, which as of
-`1.9.11-achievemore.1` covers AngularJS core, `ngResource`, `ngSanitize`, and
-`angular-translate`. Sourcing any of these
+`1.9.11-achievemore.1` covers AngularJS core, `ngResource`, `ngSanitize`,
+`ngAnimate`, `ngMessages`, and `angular-translate`. Sourcing any of these
 modules from an upstream AngularJS 1.8.x release instead re-introduces the
 unpatched code paths, because the fixes are not present upstream.
 

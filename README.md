@@ -2,8 +2,8 @@
 
 This repository provides an independently maintained AngularJS distribution for
 legacy AchieveMore applications. Release `v1.9.11-achievemore.1` contains
-AngularJS core, `ngResource`, `ngSanitize`, and `angular-translate` browser
-bundles with regression-tested fixes documented in [VEX.md](VEX.md).
+AngularJS core, `ngResource`, `ngSanitize`, `ngAnimate`, `ngMessages`, and
+`angular-translate` browser bundles with regression-tested fixes documented in [VEX.md](VEX.md).
 
 This is not an official Google AngularJS release and is not affiliated with
 HeroDevs, OpenLogic, or another commercial LTS vendor.

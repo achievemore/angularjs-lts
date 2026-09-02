@@ -10,6 +10,14 @@
 - No AngularJS API changes accompany the renumber. Consumers upgrading from
   `1.8.4-achievemore.1` need only change the tag.
 
+## Distribution
+
+- Added `ngAnimate` and `ngMessages` browser bundles to `dist/`. Consumers
+  previously had to source these modules from upstream AngularJS 1.8.2, which
+  mixed unpatched framework code into application bundles that otherwise used
+  this distribution.
+- Extended `verify:dist` to cover the two new bundles.
+
 ## Security
 
 - No new vulnerability fixes. The AngularJS advisories outstanding at the time
